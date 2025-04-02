@@ -5,8 +5,10 @@ import { Footer } from './components/Footer';
 import { HomePage } from './pages/HomePage';
 import { ProjectDetails } from './pages/ProjectDetails';
 import { AllProjects } from './pages/AllProjects';
+
 export function App() {
-  return <BrowserRouter>
+  return (
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <div className="bg-gray-900 text-gray-100 min-h-screen w-full">
         <Header />
         <main className="w-full">
@@ -18,5 +20,6 @@ export function App() {
         </main>
         <Footer />
       </div>
-    </BrowserRouter>;
+    </BrowserRouter>
+  );
 }
