@@ -4,12 +4,14 @@ import { ProjectCard } from './ui/ProjectCard';
 import { Link } from 'react-router-dom';
 
 export function Projects() {
+  const base = import.meta.env.BASE_URL;
+
   const projects = [
     {
       id: 1,
       title: 'Medieval Skirmish',
       description: 'Jeu de puzzle stratégique inspiré des tower defense, avec mécanique de redéploiement.',
-      image: '/images/MedievalSkirmish_01.png',
+      image: `${base}images/MedievalSkirmish_01.png`,
       tags: ['Unity', 'C#', 'Tower Defense', 'Puzzle'],
       link: '#'
     },
@@ -17,7 +19,7 @@ export function Projects() {
       id: 2,
       title: 'En Vers et Contre Tous',
       description: "Party game 3D réalisé en 48h pour la Global Game Jam 2023 sur le thème 'écorce'.",
-      image: '/images/Enversetcontretous_01.png',
+      image: `${base}images/Enversetcontretous_01.png`,
       tags: ['Unity', 'Game Jam', 'Party Game', '3D'],
       link: '#'
     },
@@ -25,7 +27,7 @@ export function Projects() {
       id: 3,
       title: 'Cursum',
       description: 'Prototype solo de runner/FPS avec glissade, wall-run et chronomètre.',
-      image: '/images/Cursum_01.png',
+      image: `${base}images/Cursum_01.png`,
       tags: ['Unity', 'FPS', 'Runner', 'Solo Dev'],
       link: '#'
     }
