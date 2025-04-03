@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { XIcon, TrophyIcon, LockIcon } from 'lucide-react';
+import { useAchievements } from '../../context/AchievementsContext';
 
 interface Achievement {
   id: number;
@@ -19,60 +20,8 @@ interface AchievementsDrawerProps {
 }
 
 export function AchievementsDrawer({ isOpen, onClose }: AchievementsDrawerProps) {
-  const [achievements, setAchievements] = useState<Achievement[]>([
-    {
-      id: 1,
-      title: 'Bienvenue 👋',
-      description: 'Visitez le site',
-      progress: 1,
-      maxProgress: 1,
-      isUnlocked: true,
-      icon: '👋',
-      rarity: 'common'
-    },
-    {
-      id: 2,
-      title: 'Explorateur 🔍',
-      description: 'Scrollez jusqu’à la section Contact',
-      progress: 0,
-      maxProgress: 1,
-      isUnlocked: false,
-      icon: '🧭',
-      rarity: 'common'
-    },
-    {
-      id: 3,
-      title: 'Curieux 😺',
-      description: 'Ouvrez le panneau des succès',
-      progress: 0,
-      maxProgress: 1,
-      isUnlocked: false,
-      icon: '📜',
-      rarity: 'rare'
-    },
-    {
-      id: 4,
-      title: 'Message Reçu 📬',
-      description: 'Envoyez un message depuis le formulaire de contact',
-      progress: 0,
-      maxProgress: 1,
-      isUnlocked: false,
-      icon: '✉️',
-      rarity: 'epic'
-    },
-    {
-      id: 5,
-      title: 'Légende Vivante 🧠',
-      description: 'Débloquez tous les succès',
-      progress: 0,
-      maxProgress: 4,
-      isUnlocked: false,
-      icon: '🏆',
-      rarity: 'legendary'
-    }
-  ]);
+  const { achievements, updateAchievement } = useAchievements();
 
-  // Débloquer certains succès selon des actions
   useEffect(() => {
     const unlockByScroll = () => {
       const contact = document.getElementById('contact');
@@ -81,44 +30,16 @@ export function AchievementsDrawer({ isOpen, onClose }: AchievementsDrawerProps)
       }
     };
 
-    // Le succès "Curieux" se débloque quand le panneau est ouvert
     if (isOpen) {
-      updateAchievement(3, 1);
+      const curious = achievements.find(a => a.id === 3);
+      if (curious && !curious.isUnlocked) {
+        updateAchievement(3, 1);
+      }
     }
 
     window.addEventListener('scroll', unlockByScroll);
     return () => window.removeEventListener('scroll', unlockByScroll);
-  }, [isOpen]);
-
-  const updateAchievement = (id: number, progressToAdd = 1) => {
-    setAchievements(prev =>
-      prev.map(ach =>
-        ach.id === id && ach.progress < ach.maxProgress
-          ? {
-              ...ach,
-              progress: ach.progress + progressToAdd,
-              isUnlocked: ach.progress + progressToAdd >= ach.maxProgress
-            }
-          : ach
-      )
-    );
-  };
-
-  // Mettre à jour la progression du succès "Légende Vivante"
-  useEffect(() => {
-    const unlockedCount = achievements.filter(a => a.isUnlocked && a.id !== 5).length;
-    setAchievements(prev =>
-      prev.map(ach =>
-        ach.id === 5
-          ? {
-              ...ach,
-              progress: unlockedCount,
-              isUnlocked: unlockedCount === 4
-            }
-          : ach
-      )
-    );
-  }, [achievements]);
+  }, [isOpen, updateAchievement, achievements]);
 
   const rarityColors = {
     common: 'bg-gray-500',
@@ -138,6 +59,12 @@ export function AchievementsDrawer({ isOpen, onClose }: AchievementsDrawerProps)
     achievements.reduce((acc, ach) => acc + ach.progress / ach.maxProgress, 0) /
     achievements.length *
     100;
+
+  // ⬇️ Tri des succès par rareté
+  const rarityOrder = ['common', 'rare', 'epic', 'legendary'];
+  const sortedAchievements = [...achievements].sort(
+    (a, b) => rarityOrder.indexOf(a.rarity) - rarityOrder.indexOf(b.rarity)
+  );
 
   return (
     <AnimatePresence>
@@ -183,7 +110,7 @@ export function AchievementsDrawer({ isOpen, onClose }: AchievementsDrawerProps)
               </div>
             </div>
             <div className="p-4 space-y-4 h-[calc(100vh-120px)] overflow-y-auto">
-              {achievements.map(achievement => {
+              {sortedAchievements.map(achievement => {
                 const progress = (achievement.progress / achievement.maxProgress) * 100;
                 return (
                   <motion.div
@@ -191,9 +118,8 @@ export function AchievementsDrawer({ isOpen, onClose }: AchievementsDrawerProps)
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3 }}
-                    className={`p-4 rounded-lg bg-gray-800/50 border border-gray-700 relative overflow-hidden ${
-                      achievement.isUnlocked ? '' : 'opacity-75'
-                    }`}
+                    className={`p-4 rounded-lg bg-gray-800/50 border border-gray-700 relative overflow-hidden ${achievement.isUnlocked ? '' : 'opacity-75'
+                      }`}
                   >
                     <div className="absolute top-0 right-0">
                       <div className={`px-2 py-1 text-xs ${rarityColors[achievement.rarity]} rounded-bl-lg`}>
@@ -209,7 +135,15 @@ export function AchievementsDrawer({ isOpen, onClose }: AchievementsDrawerProps)
                           <h3 className="font-semibold">{achievement.title}</h3>
                           {!achievement.isUnlocked && <LockIcon size={14} className="text-gray-500" />}
                         </div>
-                        <p className="text-sm text-gray-400 mb-2">{achievement.description}</p>
+                        <p className="text-sm text-gray-400 mb-2">
+                          {achievement.id === 10
+                            ? `Voir 3 projets (${achievement.progress}/3)`
+                            : achievement.id === 11
+                              ? `Voir 5 projets (${achievement.progress}/5)`
+                              : achievement.id === 12
+                                ? `Voir 7 projets (${achievement.progress}/7)`
+                                : achievement.description}
+                        </p>
                         <div className="space-y-1">
                           <div className="flex justify-between items-center text-xs text-gray-400">
                             <span>Progression</span>

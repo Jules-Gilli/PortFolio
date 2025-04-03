@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MailIcon, PhoneIcon, MapPinIcon, SendIcon, CheckCircleIcon } from 'lucide-react';
+import { useAchievements } from '../context/AchievementsContext';
 
 export function Contact() {
   const [formState, setFormState] = useState({
@@ -16,9 +17,13 @@ export function Contact() {
     setFormState(prev => ({ ...prev, [name]: value }));
   };
 
+  const { updateAchievement } = useAchievements();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formState);
+
+    updateAchievement(4); // ID du succès "Message Reçu 📬"
 
     setFormState({
       name: '',

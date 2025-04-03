@@ -1,13 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeftIcon, ExternalLinkIcon, GithubIcon, YoutubeIcon } from 'lucide-react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { allProjects } from '../data/projects';
+import { useAchievements } from '../context/AchievementsContext';
 
 export function ProjectDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
   const project = allProjects.find(p => p.id === Number(id));
+
+  const { achievements, updateAchievement, addViewedProject } = useAchievements();
+  
+  useEffect(() => {
+    const found = achievements.find(a => a.id === 9);
+    if (found && !found.isUnlocked) {
+      updateAchievement(9, 1); // Succès "Fouineur"
+    }
+  
+    if (project) {
+      addViewedProject(project.id); // 🆕 Succès cumulables
+    }
+  }, [achievements, updateAchievement, addViewedProject, project]);
+  
+  
 
   if (!project) {
     return (

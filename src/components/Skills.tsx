@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { useAchievements } from '../context/AchievementsContext';
 
 export function Skills() {
+  const { updateAchievement } = useAchievements();
+  const skillsRef = useRef<HTMLDivElement | null>(null);
+
   const skillCategories = [
     {
       title: 'Développement & Tech',
@@ -41,8 +45,31 @@ export function Skills() {
     },
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            updateAchievement(6); // Succès "Compétent 💼"
+          }
+        });
+      },
+      { threshold: 0.4 } // Quand 40% de la section est visible
+    );
+  
+    if (skillsRef.current) {
+      observer.observe(skillsRef.current);
+    }
+  
+    return () => {
+      if (skillsRef.current) {
+        observer.unobserve(skillsRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section id="skills" className="py-20 bg-gray-800 w-full">
+    <section id="skills" ref={skillsRef} className="py-20 bg-gray-800 w-full">
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center mb-16"
