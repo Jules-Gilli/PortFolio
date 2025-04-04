@@ -127,22 +127,22 @@ export function AchievementsDrawer({ isOpen, onClose }: AchievementsDrawerProps)
                       </div>
                     </div>
                     <div className="flex items-start space-x-3">
-                      <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-gray-700 rounded-lg text-2xl">
+                      <div
+                        className={`flex-shrink-0 w-12 h-12 flex items-center justify-center bg-gray-700 rounded-lg text-2xl transition-all duration-300
+                        ${!achievement.isUnlocked ? 'filter grayscale opacity-50' : ''}`}
+                      >
                         {achievement.icon}
                       </div>
+
                       <div className="flex-1">
                         <div className="flex items-center space-x-2">
                           <h3 className="font-semibold">{achievement.title}</h3>
                           {!achievement.isUnlocked && <LockIcon size={14} className="text-gray-500" />}
                         </div>
                         <p className="text-sm text-gray-400 mb-2">
-                          {achievement.id === 10
-                            ? `Voir 3 projets (${achievement.progress}/3)`
-                            : achievement.id === 11
-                              ? `Voir 5 projets (${achievement.progress}/5)`
-                              : achievement.id === 12
-                                ? `Voir 7 projets (${achievement.progress}/7)`
-                                : achievement.description}
+                          {achievement.maxProgress > 1
+                            ? `${achievement.description} (${achievement.progress}/${achievement.maxProgress})`
+                            : achievement.description}
                         </p>
                         <div className="space-y-1">
                           <div className="flex justify-between items-center text-xs text-gray-400">

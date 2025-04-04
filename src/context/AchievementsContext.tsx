@@ -171,13 +171,28 @@ export const AchievementsProvider: React.FC<{ children: React.ReactNode }> = ({ 
       const updated = new Set(prev);
       updated.add(projectId);
 
-      if (updated.size >= 3) updateAchievement(10); // Insatiable
-      if (updated.size >= 5) updateAchievement(11); // Glouton
-      if (updated.size >= 7) updateAchievement(12); // Achiever
+      setAchievementProgress(10, updated.size); // Insatiable
+      setAchievementProgress(11, updated.size); // Glouton
+      setAchievementProgress(12, updated.size); // Achiever
 
       return updated;
     });
   };
+
+  const setAchievementProgress = (id: number, value: number) => {
+    setAchievements(prev =>
+      prev.map(ach =>
+        ach.id === id
+          ? {
+              ...ach,
+              progress: Math.min(value, ach.maxProgress),
+              isUnlocked: value >= ach.maxProgress
+            }
+          : ach
+      )
+    );
+  };
+  
 
   useEffect(() => {
     const unlocked = achievements.filter(a => a.isUnlocked && a.id !== 5).length;
