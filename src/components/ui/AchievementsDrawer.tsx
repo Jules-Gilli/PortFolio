@@ -42,18 +42,19 @@ export function AchievementsDrawer({ isOpen, onClose }: AchievementsDrawerProps)
   }, [isOpen, updateAchievement, achievements]);
 
   const rarityColors = {
-    common: 'bg-gray-500',
+    common: 'bg-green-500',  
     rare: 'bg-blue-500',
     epic: 'bg-purple-500',
     legendary: 'bg-yellow-500'
   };
-
+  
   const rarityGradients = {
-    common: 'from-gray-500',
+    common: 'from-green-500', 
     rare: 'from-blue-500',
     epic: 'from-purple-500',
     legendary: 'from-yellow-500'
   };
+  
 
   const totalProgress =
     achievements.reduce((acc, ach) => acc + ach.progress / ach.maxProgress, 0) /
