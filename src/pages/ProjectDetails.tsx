@@ -216,6 +216,7 @@ export function ProjectDetails() {
                   🎮 Télécharger le jeu
                 </a>
               )}
+              
             </motion.div>
           )}
         </div>

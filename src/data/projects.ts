@@ -43,7 +43,8 @@ export const allProjects: Project[] = [
     links: {
       github: '',
       demo: '',
-      youtube: ''
+      youtube: '',
+      download: '/downloads/Medieval Skirmish.zip' 
     }
   },
   {
@@ -70,7 +71,8 @@ export const allProjects: Project[] = [
     links: {
       demo: '',
       github: '',
-      youtube: ''
+      youtube: '',
+      download: '/downloads/EnVerEtContreTous.zip' 
     }
   },
   {
@@ -98,7 +100,34 @@ export const allProjects: Project[] = [
       demo: 'https://jules-gilli.itch.io/cursum',
       github: '',
       youtube: '',
-      download: '/downloads/Cursum.zip' 
+      download: '/downloads/CURSUM.zip' 
+    }
+  },
+  {
+    id: 4,
+    title: 'Keep Dancing to Live',
+    description: "Jeu d'esquive rythmée réalisé en 48h pour la Global Game Jam 2024.",
+    fullDescription: `Keep Dancing To Live est un jeu sur un fou du roi qui a besoin de danser. Le joueur doit tourner une planche de bois découpée en forme de héros. Si tu ne fais pas rire le roi... tu mourras.\n\nJeu réalisé dans le cadre de la GGJ 2024, en moins de 48h, avec Mariana Mancieri, Romain Pitot, Nicolas Saussol et Jules Gilli au développement, William Vasseur à la 3D, et l'ensemble de l'équipe à la conception.`,
+    image: `${base}images/KeepDancing_01.png`, // à ajouter dans public/images
+    tags: ['Unity', 'Game Jam', 'Rythme', '3D'],
+    features: [
+      "Gameplay original basé sur le rythme",
+      "Rotation d’un personnage pour esquiver",
+      "Ambiance délirante de cour royale"
+    ],
+    technologies: ['Unity', 'C#'],
+    gallery: [
+      `${base}images/KeepDancing_01.png`,
+      `${base}images/KeepDancing_02.png`,
+      `${base}images/KeepDancing_03.png`,
+      `${base}images/KeepDancing_04.png`
+    ],
+    links: {
+      demo: 'https://jules-gilli.itch.io/keep-dancing-to-live',
+      github: '',
+      youtube: '',
+      download: '/downloads/Keep Dancing To Live.zip' 
     }
   }
+  
 ];

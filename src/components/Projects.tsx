@@ -30,7 +30,16 @@ export function Projects() {
       image: `${base}images/Cursum_01.png`,
       tags: ['Unity', 'FPS', 'Runner', 'Solo Dev'],
       link: '#'
+    },
+    {
+      id: 4,
+      title: 'Keep Dancing to Live',
+      description: "Un jeu d'esquive et de rythme délirant, réalisé lors de la Global Game Jam 2024.",
+      image: `${base}images/KeepDancing_01.png`,
+      tags: ['Unity', 'Game Jam', 'Rythme', '3D'],
+      link: '#'
     }
+    
   ];
 
   return (
