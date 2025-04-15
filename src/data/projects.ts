@@ -128,6 +128,37 @@ export const allProjects: Project[] = [
       youtube: '',
       download: '/downloads/Keep Dancing To Live.zip' 
     }
+  },
+  {
+    id: 5,
+    title: "Echoes of the Abyss",
+    description: "Jeu d'exploration à la première personne dans un monde organique, oppressant et vivant.",
+    fullDescription: `Echoes of the Abyss est un projet d'exploration narratif en vue subjective dans un monde entièrement organique. Le joueur y incarne un être sans mémoire, réveillé dans les entrailles d’un monde vivant et mystérieux. Guidé par des visions passées et par la pulsation de l'environnement, il doit retrouver son identité en sondant les profondeurs d’un lieu oppressant, où chaque couloir respire et chaque porte est de chair.\n\nCe projet met l’accent sur la narration environnementale, l’ambiance sonore immersive et la cohérence d’un univers original. L’exploration non linéaire, les changements d’échelle et la découverte de souvenirs réactivés font partie des mécaniques centrales.`,
+    image: `${base}images/EchoesOfTheAbyss_Anim01.gif`, // à ajouter dans /public/images
+    tags: ['Unreal Engine', 'Game Design', 'Narration', 'Exploration'],
+    features: [
+      "Univers organique vivant et oppressant",
+      "Exploration à la première personne",
+      "Narration environnementale immersive",
+      "Visions du passé & souvenirs réactivés"
+    ],
+    technologies: ['Unreal Engine', 'Blueprints', 'DAW (sound design)', 'Notion (GDD)'],
+    gallery: [
+      `${base}images/EchoesOfTheAbyss_01.png`,
+      `${base}images/EchoesOfTheAbyss_02.png`,
+      `${base}images/EchoesOfTheAbyss_03.png`,
+      `${base}images/EchoesOfTheAbyss_04.png`,
+      `${base}images/EchoesOfTheAbyss_05.png`,
+      `${base}images/EchoesOfTheAbyss_Anim04.gif`,
+      `${base}images/EchoesOfTheAbyss_Anim01.gif`, 
+      `${base}images/EchoesOfTheAbyss_Anim02.gif`,
+      `${base}images/EchoesOfTheAbyss_Anim03.gif`
+    ],
+    links: {
+      demo: '', // si tu le protos un jour
+      github: '', // si tu veux partager le GDD ou du code
+      youtube: '', // si tu filmes une démo
+      download: '/downloads/Echeos of the Abyss.zip' 
+    }
   }
-  
 ];
