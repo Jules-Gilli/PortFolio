@@ -11,19 +11,19 @@ export function ProjectDetails() {
   const project = allProjects.find(p => p.id === Number(id));
 
   const { achievements, updateAchievement, addViewedProject } = useAchievements();
-  
+
   useEffect(() => {
     const found = achievements.find(a => a.id === 9);
     if (found && !found.isUnlocked) {
       updateAchievement(9, 1); // Succès "Fouineur"
     }
-  
+
     if (project) {
       addViewedProject(project.id); // 🆕 Succès cumulables
     }
   }, [achievements, updateAchievement, addViewedProject, project]);
-  
-  
+
+
 
   if (!project) {
     return (
@@ -186,7 +186,7 @@ export function ProjectDetails() {
                   className="inline-flex items-center bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg"
                 >
                   <ExternalLinkIcon size={20} className="mr-2" />
-                  Voir la démo
+                  Voir le ichi.io
                 </a>
               )}
               {project.links.github && (
@@ -205,6 +205,15 @@ export function ProjectDetails() {
                 >
                   <YoutubeIcon size={20} className="mr-2" />
                   Voir le trailer
+                </a>
+              )}
+              {project.links.download && (
+                <a
+                  href={project.links.download}
+                  className="inline-flex items-center border border-purple-500 text-purple-500 hover:bg-purple-900/20 px-6 py-3 rounded-lg"
+                  download
+                >
+                  🎮 Télécharger le jeu
                 </a>
               )}
             </motion.div>

@@ -12,6 +12,7 @@ export interface Project {
     demo?: string;
     github?: string;
     youtube?: string;
+    download?: string;
   };
 }
 
@@ -96,7 +97,8 @@ export const allProjects: Project[] = [
     links: {
       demo: 'https://jules-gilli.itch.io/cursum',
       github: '',
-      youtube: ''
+      youtube: '',
+      download: '/downloads/Cursum.zip' 
     }
   }
 ];
