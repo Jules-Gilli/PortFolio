@@ -186,7 +186,7 @@ export function ProjectDetails() {
                   className="inline-flex items-center bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg"
                 >
                   <ExternalLinkIcon size={20} className="mr-2" />
-                  Voir le ichi.io
+                  Try it
                 </a>
               )}
               {project.links.github && (

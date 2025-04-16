@@ -32,7 +32,7 @@ export const allProjects: Project[] = [
       "Tourelles & compétences uniques",
       "Gameplay basé sur la réflexion"
     ],
-    technologies: ['Unity', 'C#', 'Trello', 'Figma'],
+    technologies: ['Unity', 'C#', 'Git', 'ZBrush'],
     gallery: [
       `${base}images/MedievalSkirmish_01.png`,
       `${base}images/MedievalSkirmish_10.png`,
@@ -44,7 +44,7 @@ export const allProjects: Project[] = [
       github: '',
       demo: '',
       youtube: '',
-      download: '/downloads/Medieval Skirmish.zip' 
+      download: '' 
     }
   },
   {
@@ -53,7 +53,7 @@ export const allProjects: Project[] = [
     description: "Party game en 3D réalisé en 48h pour la Global Game Jam 2023 sur le thème 'écorce'.",
     fullDescription: `Jeu de plateforme compétitif en équipe de 4 (dev, graphiste, LD, support). J’ai conçu les mécaniques, rédigé un GDD, et programmé le jeu. Le joueur glisse en forêt en évitant les chutes et en optimisant son score. Il peut choisir entre plusieurs chemins lors de la descente. Jeu rapide et fun à jouer, conçu pour être rejoué plusieurs fois.`,
     image: `${base}images/Enversetcontretous_01.png`,
-    tags: ['Unity', 'Game Jam', 'Party Game', '3D'],
+    tags: ['Unity', 'Game Jam', 'Party Game', 'C#'],
     features: [
       "Gameplay arcade rapide",
       "Multiples chemins",
@@ -81,14 +81,14 @@ export const allProjects: Project[] = [
     description: "Prototype solo de runner/FPS réalisé sur un mois en autonomie complète.",
     fullDescription: `Premier projet solo dans lequel j’ai tout géré : conception, GDD, design, programmation, intégration d’assets. Cursum est un jeu de course contre la montre à la première personne. Le joueur maîtrise un panel de mouvements : glissade, saut, wall-run... Le but est de terminer les parcours dans le temps imparti, avec un hub, un tutoriel, et un système de score.`,
     image: `${base}images/Cursum_01.png`,
-    tags: ['Unity', 'FPS', 'Runner', 'Solo Dev'],
+    tags: ['Unity', 'C#', 'Runner', 'Solo Dev'],
     features: [
       "Wall run, glissade, saut",
       "Hub central avec scores",
       "Niveaux chronométrés",
       "Tutoriel interactif"
     ],
-    technologies: ['Unity', 'C#', 'Asset Store'],
+    technologies: ['Unity', 'C#'],
     gallery: [
       `${base}images/Cursum_01.png`,
       `${base}images/Cursum_02.png`,
@@ -100,7 +100,7 @@ export const allProjects: Project[] = [
       demo: 'https://jules-gilli.itch.io/cursum',
       github: '',
       youtube: '',
-      download: '/downloads/CURSUM.zip' 
+      download: '' 
     }
   },
   {
@@ -108,14 +108,14 @@ export const allProjects: Project[] = [
     title: 'Keep Dancing to Live',
     description: "Jeu d'esquive rythmée réalisé en 48h pour la Global Game Jam 2024.",
     fullDescription: `Keep Dancing To Live est un jeu sur un fou du roi qui a besoin de danser. Le joueur doit tourner une planche de bois découpée en forme de héros. Si tu ne fais pas rire le roi... tu mourras.\n\nJeu réalisé dans le cadre de la GGJ 2024, en moins de 48h, avec Mariana Mancieri, Romain Pitot, Nicolas Saussol et Jules Gilli au développement, William Vasseur à la 3D, et l'ensemble de l'équipe à la conception.`,
-    image: `${base}images/KeepDancing_01.png`, // à ajouter dans public/images
-    tags: ['Unity', 'Game Jam', 'Rythme', '3D'],
+    image: `${base}images/KeepDancing_01.png`,
+    tags: ['Unity', 'Game Jam', 'Party Game', 'C#'],
     features: [
       "Gameplay original basé sur le rythme",
       "Rotation d’un personnage pour esquiver",
       "Ambiance délirante de cour royale"
     ],
-    technologies: ['Unity', 'C#'],
+    technologies: ['Unity', 'C#', 'Git', 'Blender'],
     gallery: [
       `${base}images/KeepDancing_01.png`,
       `${base}images/KeepDancing_02.png`,
@@ -126,23 +126,23 @@ export const allProjects: Project[] = [
       demo: 'https://jules-gilli.itch.io/keep-dancing-to-live',
       github: '',
       youtube: '',
-      download: '/downloads/Keep Dancing To Live.zip' 
+      download: '' 
     }
   },
   {
     id: 5,
     title: "Echoes of the Abyss",
-    description: "Jeu d'exploration à la première personne dans un monde organique, oppressant et vivant.",
-    fullDescription: `Echoes of the Abyss est un projet d'exploration narratif en vue subjective dans un monde entièrement organique. Le joueur y incarne un être sans mémoire, réveillé dans les entrailles d’un monde vivant et mystérieux. Guidé par des visions passées et par la pulsation de l'environnement, il doit retrouver son identité en sondant les profondeurs d’un lieu oppressant, où chaque couloir respire et chaque porte est de chair.\n\nCe projet met l’accent sur la narration environnementale, l’ambiance sonore immersive et la cohérence d’un univers original. L’exploration non linéaire, les changements d’échelle et la découverte de souvenirs réactivés font partie des mécaniques centrales.`,
-    image: `${base}images/EchoesOfTheAbyss_Anim01.gif`, // à ajouter dans /public/images
-    tags: ['Unreal Engine', 'Game Design', 'Narration', 'Exploration'],
+    description: "Jeu rogue-lite en 2D avec génération procédurale et combat en temps réel.",
+    fullDescription: `Echoes of the Abyss est un jeu en 2D de type rogue-lite développé avec le framework Java libGDX. Le joueur incarne un personnage devant explorer un donjon mystérieux et affronter des ennemis générés procéduralement à chaque partie. Chaque étage est un nouveau défi, avec des combats en temps réel et une difficulté croissante.\n\nLe projet met l’accent sur la rejouabilité, l’amélioration du personnage entre les runs, la gestion des ressources et un système de progression à chaque niveau. La direction artistique et sonore vise à renforcer l’ambiance oppressante d’un monde en déliquescence.`,
+    image: `${base}images/EchoesOfTheAbyss_Anim01.gif`,
+    tags: ['Java', 'LibGDX', 'Rogue Lite', '2D'],
     features: [
-      "Univers organique vivant et oppressant",
-      "Exploration à la première personne",
-      "Narration environnementale immersive",
-      "Visions du passé & souvenirs réactivés"
+      "Exploration d'étages générés procéduralement",
+      "Système de combat en temps réel",
+      "Progression et amélioration entre les runs",
+      "Ambiance sombre et immersive"
     ],
-    technologies: ['Unreal Engine', 'Blueprints', 'DAW (sound design)', 'Notion (GDD)'],
+    technologies: ['Java', 'libGDX', 'Gradle', 'Tiled Map Editor', 'GitHub'],
     gallery: [
       `${base}images/EchoesOfTheAbyss_01.png`,
       `${base}images/EchoesOfTheAbyss_02.png`,
@@ -150,15 +150,43 @@ export const allProjects: Project[] = [
       `${base}images/EchoesOfTheAbyss_04.png`,
       `${base}images/EchoesOfTheAbyss_05.png`,
       `${base}images/EchoesOfTheAbyss_Anim04.gif`,
-      `${base}images/EchoesOfTheAbyss_Anim01.gif`, 
+      `${base}images/EchoesOfTheAbyss_Anim01.gif`,
       `${base}images/EchoesOfTheAbyss_Anim02.gif`,
       `${base}images/EchoesOfTheAbyss_Anim03.gif`
     ],
     links: {
-      demo: '', // si tu le protos un jour
-      github: '', // si tu veux partager le GDD ou du code
-      youtube: '', // si tu filmes une démo
-      download: '/downloads/Echeos of the Abyss.zip' 
+      demo: '',
+      github: 'https://github.com/JulesGilli/Echoes-of-the-abyss',
+      youtube: '',
+      download: '/downloads/Echeos of the Abyss.zip'
+    }
+  },
+  {
+    id: 6,
+    title: "Speed Typo",
+    description: "Jeu de dactylographie rapide avec plusieurs modes originaux et des effets dynamiques.",
+    fullDescription: `Speed Typo est un jeu web de rapidité et de précision au clavier, développé en React et TypeScript. Pensé comme un serious game fun, il propose plusieurs modes de jeu originaux : mots classiques, inversés, remplacés par des chiffres, phrases infinies, ou encore un mode aveugle où l'on tape sans voir ce qu'on écrit.\n\nChaque session est ponctuée de sons, effets visuels et retours dynamiques. Le scoring en temps réel et les animations rendent l'expérience stimulante. Un système de succès est également intégré pour motiver l'exploration de tous les modes.\n\n👉 Le projet est actuellement en développement et continue d’évoluer avec de nouveaux modes et fonctionnalités à venir.`,
+    image: `${base}images/SpeedTypo_Anim01.gif`,
+    tags: ['React', 'Jeu Web', 'Solo Dev'],
+    features: [
+      "Plusieurs modes de jeu : normal, inversé, aveugle, chiffres, phrase infinie...",
+      "Scoring dynamique avec effets visuels",
+      "Système de succès en fonction des actions",
+      "Interface fluide et responsive"
+    ],
+    technologies: ['React', 'TypeScript', 'Vite', 'TailwindCSS', 'Framer Motion'],
+    gallery: [
+      `${base}images/SpeedTypo_01.png`,
+      `${base}images/SpeedTypo_02.png`,
+      `${base}images/SpeedTypo_03.png`,
+      `${base}images/SpeedTypo_04.png`,
+      `${base}images/SpeedTypo_Anim01.gif`
+    ],
+    links: {
+      demo: 'https://julesgilli.github.io/julesgilli-speedtype/',
+      github: 'https://github.com/JulesGilli/SpeedType',
+      youtube: '',
+      download: ''
     }
   }
 ];
