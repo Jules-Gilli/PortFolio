@@ -183,7 +183,7 @@ export const allProjects: Project[] = [
       `${base}images/SpeedTypo_Anim01.gif`
     ],
     links: {
-      demo: 'https://julesgilli.github.io/julesgilli-speedtype/',
+      demo: 'https://julesgilli.github.io/SpeedType/',
       github: 'https://github.com/JulesGilli/SpeedType',
       youtube: '',
       download: ''

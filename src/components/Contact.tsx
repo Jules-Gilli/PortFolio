@@ -1,43 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MailIcon, PhoneIcon, MapPinIcon, SendIcon, CheckCircleIcon } from 'lucide-react';
 import { useAchievements } from '../context/AchievementsContext';
+import { useForm, ValidationError } from '@formspree/react';
 
 export function Contact() {
+  const { updateAchievement } = useAchievements();
+  const [success, setSuccess] = useState(false);
+
   const [formState, setFormState] = useState({
     name: '',
     email: '',
     message: ''
   });
 
-  const [success, setSuccess] = useState(false);
+  const [state, handleSubmit] = useForm("mjkydwqp"); // ← Remplace par ton propre ID Formspree si besoin
+
+  useEffect(() => {
+    if (state.succeeded) {
+      updateAchievement(4);
+      setFormState({ name: '', email: '', message: '' });
+      setSuccess(true);
+      setTimeout(() => setSuccess(false), 4000);
+    }
+  }, [state.succeeded]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormState(prev => ({ ...prev, [name]: value }));
   };
 
-  const { updateAchievement } = useAchievements();
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formState);
-
-    updateAchievement(4); // ID du succès "Message Reçu 📬"
-
-    setFormState({
-      name: '',
-      email: '',
-      message: ''
-    });
-
-    setSuccess(true);
-    setTimeout(() => setSuccess(false), 4000); // Masque après 4 secondes
-  };
-
   return (
     <section id="contact" className="py-20 bg-gray-900 w-full relative">
-      {/* ✅ SUCCÈS ANIMÉ */}
       <AnimatePresence>
         {success && (
           <motion.div
@@ -144,6 +138,7 @@ export function Contact() {
                   className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white"
                   placeholder="votre@email.com"
                 />
+                <ValidationError prefix="Email" field="email" errors={state.errors} />
               </div>
               <div>
                 <label htmlFor="message" className="block mb-2 text-gray-300">Message</label>
@@ -157,9 +152,11 @@ export function Contact() {
                   className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white resize-none"
                   placeholder="Votre message..."
                 />
+                <ValidationError prefix="Message" field="message" errors={state.errors} />
               </div>
               <motion.button
                 type="submit"
+                disabled={state.submitting}
                 className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-medium transition-colors inline-flex items-center"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
