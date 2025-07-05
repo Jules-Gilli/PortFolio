@@ -5,12 +5,13 @@ import { HomePage } from './pages/HomePage';
 import { ProjectDetails } from './pages/ProjectDetails';
 import { AllProjects } from './pages/AllProjects';
 import { useAchievements } from './context/AchievementsContext';
-import { Routes, Route, useLocation } from 'react-router-dom'; // ✅ Ajoute bien useLocation ici
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { ToolDetails } from './pages/ToolDetails'
 
 export function App() {
-  const { updateAchievement } = useAchievements(); // ✅ Place ça avant useEffect
+  const { updateAchievement } = useAchievements();
 
-  const location = useLocation(); // ✅ utilise useLocation ici
+  const location = useLocation();
 
   const seenProjects = new Set<string>();
 
@@ -21,7 +22,7 @@ export function App() {
       if (id && !seenProjects.has(id)) {
         seenProjects.add(id);
         updateAchievement(9); // Fouineur 🔎
-        
+
         const count = seenProjects.size;
         if (count >= 3) updateAchievement(10); // Insatiable 🤯
         if (count >= 5) updateAchievement(11); // Glouton 💥
@@ -29,7 +30,7 @@ export function App() {
       }
     }
   }, [location]);
-  
+
   useEffect(() => {
     if (location.pathname === '/projects') {
       updateAchievement(8); // Succès "Explorer 📁"
@@ -57,6 +58,7 @@ export function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/projects" element={<AllProjects />} />
           <Route path="/project/:id" element={<ProjectDetails />} />
+          <Route path="/tool/:id" element={<ToolDetails />} />
         </Routes>
       </main>
       <Footer />
