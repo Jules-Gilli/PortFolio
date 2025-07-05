@@ -6,7 +6,8 @@ import { ProjectDetails } from './pages/ProjectDetails';
 import { AllProjects } from './pages/AllProjects';
 import { useAchievements } from './context/AchievementsContext';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { ToolDetails } from './pages/ToolDetails'
+import { ToolDetails } from './pages/ToolDetails';
+import { AllTools } from './pages/AllTools'
 
 export function App() {
   const { updateAchievement } = useAchievements();
@@ -59,6 +60,7 @@ export function App() {
           <Route path="/projects" element={<AllProjects />} />
           <Route path="/project/:id" element={<ProjectDetails />} />
           <Route path="/tool/:id" element={<ToolDetails />} />
+          <Route path="/tools" element={<AllTools />} />
         </Routes>
       </main>
       <Footer />

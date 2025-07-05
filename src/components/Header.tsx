@@ -22,7 +22,7 @@ export function Header() {
   const navItems = [
     { name: 'Accueil', href: '#hero' },
     { name: 'Projets', href: '#projects' },
-    { name: 'Tools', href: '/tools' },
+    { name: 'Tools', href: '#tools' },
     { name: 'Compétences', href: '#skills' },
     { name: 'Contact', href: '#contact' },
   ];
