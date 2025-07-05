@@ -158,7 +158,7 @@ export const allProjects: Project[] = [
       demo: '',
       github: 'https://github.com/JulesGilli/Echoes-of-the-abyss',
       youtube: '',
-      download: '/downloads/Echeos of the Abyss.zip'
+      download: '/downloads/Echeos of the Abyss Win.zip'
     }
   },
   {
