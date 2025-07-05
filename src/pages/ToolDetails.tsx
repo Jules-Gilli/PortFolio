@@ -14,6 +14,7 @@ import {
   ExternalLinkIcon,
 } from 'lucide-react'
 import { toolsData } from '../data/toolsData'
+import { ReadmeViewer } from '../components/ReadmeViewer'
 export function ToolDetails() {
   const { id } = useParams<{
     id: string
@@ -76,7 +77,7 @@ export function ToolDetails() {
                 <div className="flex items-center">
                   <span className="mx-2 text-gray-400">/</span>
                   <Link
-                    to="/#tools"
+                    to="/tools"
                     className="text-sm text-gray-400 hover:text-purple-500"
                   >
                     Outils
@@ -271,6 +272,18 @@ export function ToolDetails() {
                 ))}
               </div>
             </motion.section>
+
+            {/* README intégré */}
+            <motion.section
+              className="bg-gray-800 rounded-xl p-8 mt-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.4 }}
+            >
+              <h2 className="text-2xl font-bold mb-4">Documentation</h2>
+              <ReadmeViewer slug={tool.slug} />
+            </motion.section>
+
           </div>
           {/* Sidebar */}
           <div className="lg:col-span-1">
@@ -278,40 +291,24 @@ export function ToolDetails() {
               {/* Purchase/Download Card */}
               <motion.div
                 className="bg-gray-800 rounded-xl p-6 sticky top-24"
-                initial={{
-                  opacity: 0,
-                  x: 20,
-                }}
-                animate={{
-                  opacity: 1,
-                  x: 0,
-                }}
-                transition={{
-                  duration: 0.4,
-                }}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4 }}
               >
                 <div className="text-center mb-6">
                   <div className="text-3xl font-bold mb-2">{tool.price}</div>
-                  <div className="text-gray-400 text-sm">
-                    Licence unique / Lifetime access
-                  </div>
+                  <div className="text-gray-400 text-sm">Licence Unity Asset Store</div>
                 </div>
+
                 <a
                   href={tool.purchaseLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg font-medium transition-colors mb-4"
+                  className="flex items-center justify-center w-full bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-lg font-medium transition-colors"
                 >
-                  Acheter maintenant
+                  Voir sur l’Asset Store
                 </a>
-                <a
-                  href={tool.demoLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center w-full border border-purple-500 text-purple-500 hover:bg-purple-900/20 py-3 rounded-lg font-medium transition-colors"
-                >
-                  Télécharger la démo
-                </a>
+
                 <div className="mt-6 space-y-4">
                   <div className="flex justify-between text-sm">
                     <span className="text-gray-400">Dernière mise à jour</span>
@@ -395,48 +392,6 @@ export function ToolDetails() {
                       <div className="text-white">{tool.complexity}</div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-              {/* Support */}
-              <motion.div
-                className="bg-gray-800 rounded-xl p-6"
-                initial={{
-                  opacity: 0,
-                  x: 20,
-                }}
-                animate={{
-                  opacity: 1,
-                  x: 0,
-                }}
-                transition={{
-                  duration: 0.4,
-                  delay: 0.2,
-                }}
-              >
-                <h3 className="text-lg font-semibold mb-4">Support</h3>
-                <p className="text-gray-300 mb-4">
-                  Besoin d'aide avec cet outil ? Consultez la documentation ou
-                  contactez-moi directement.
-                </p>
-                <div className="space-y-3">
-                  <a
-                    href={tool.documentationLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-purple-400 hover:text-purple-300"
-                  >
-                    <ExternalLinkIcon size={16} className="mr-2" />
-                    Documentation
-                  </a>
-                  <a
-                    href={tool.supportLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-purple-400 hover:text-purple-300"
-                  >
-                    <ExternalLinkIcon size={16} className="mr-2" />
-                    Support
-                  </a>
                 </div>
               </motion.div>
             </div>

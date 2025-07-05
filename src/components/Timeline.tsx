@@ -13,55 +13,54 @@ export function Timeline() {
   const timelineData: TimelineItem[] = [
     {
       id: 1,
-      year: '2015',
-      title: 'Master en Game Design',
-      description:
-        'École Supérieure du Jeu Vidéo - Spécialisation en game design et développement Unity',
+      year: '2018',
+      title: 'Baccalauréat STI2D',
+      description: 'Bac technologique orienté innovation, technologies et développement durable.',
       type: 'education',
     },
     {
       id: 2,
-      year: '2016',
-      title: 'Game Developer Junior',
-      description: 'Studio Indie Games - Développement de jeux mobiles casual',
-      type: 'experience',
-      technologies: ['Unity', 'C#', 'Mobile'],
-    },
-    {
-      id: 3,
-      year: '2017',
-      title: 'Space Runner',
-      description:
-        'Jeu mobile - Plus de 100k téléchargements sur le Play Store',
-      type: 'project',
-      technologies: ['Unity', 'C#', 'Mobile'],
-    },
-    {
-      id: 4,
-      year: '2018-2020',
-      title: 'Lead Developer',
-      description:
-        'GameCorp Studios - Direction technique sur plusieurs projets AAA',
-      type: 'experience',
-      technologies: ['Unreal Engine', 'C++', 'DirectX'],
+      year: '2019–2022',
+      title: 'Bachelor Game Design & Creative Coding',
+      description: 'Formation axée sur le développement de jeux vidéo, design interactif et programmation créative.',
+      type: 'education',
+      technologies: ['Unity', 'C#', 'Game Design', 'Creative Tech'],
     },
     {
       id: 5,
       year: '2021',
-      title: 'Formation Unreal Engine 5',
-      description:
-        'Certification avancée en développement avec Unreal Engine 5',
+      title: 'Graphiste 3D (Stage) – Tork-VR',
+      description: 'Stage en design graphique et modélisation 3D pour projets en réalité virtuelle.',
+      type: 'experience',
+      technologies: ['Blender', 'Unity', 'VR', 'Photoshop'],
+    },
+    {
+      id: 4,
+      year: '2022–2024',
+      title: 'Master Audiovisuel, Médias Interactifs Numériques, Jeux',
+      description: 'Master AMINJ à l’INU Champollion, spécialisé en création de jeux numériques et développement Unity.',
       type: 'education',
+      technologies: ['Unity', 'Level Design', 'Narrative', 'Tooling'],
     },
     {
       id: 6,
-      year: '2022-Present',
-      title: 'Indie Game Developer',
-      description: 'Développement indépendant de jeux vidéo',
+      year: '2023–Aujourd’hui',
+      title: 'Développeur Unity (Alternance) – Koboct',
+      description: 'Développement d’outils internes, prototypage VR/3D et travail sur des applications temps réel.',
       type: 'experience',
-      technologies: ['Unity', 'Unreal Engine', 'Godot'],
+      technologies: ['Unity', 'C#', 'XR', 'UI/UX', 'Editor Tools'],
     },
-  ]
+    {
+      id: 3,
+      year: '2024–2027',
+      title: 'Master Pro Information Systems Architect',
+      description:
+        'Master d’Epitech orienté expertise en gestion de projets numériques, combinant compétences techniques avancées, management agile et maîtrise de l’anglais technique.',
+      type: 'education',
+      technologies: ['Architecture Logicielle', 'Gestion de projet', 'Agile', 'DevOps', 'English Tech'],
+    },
+  ];
+
   const getIcon = (type: string) => {
     switch (type) {
       case 'education':
