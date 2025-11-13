@@ -1,9 +1,7 @@
-﻿# Forcer HTTPS pour tout le monde (optionnel, mais PRO)
-RewriteEngine On
+﻿RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Routing React / Vite SPA : renvoyer index.html pour toute URL inconnue
 RewriteBase /
 RewriteRule ^index\.html$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
