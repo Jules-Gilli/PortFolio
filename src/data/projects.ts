@@ -188,5 +188,39 @@ export const allProjects: Project[] = [
       youtube: '',
       download: ''
     }
+  },
+  {
+    id: 7,
+    title: "Whispers of the Tree",
+    description: "Aventure narrative en boucle temporelle dans un village low-poly paisible, où chaque boucle révèle de nouveaux indices.",
+    fullDescription: `Whispers of the Tree est une aventure narrative en vue à la troisième personne, plongée dans une mystérieuse boucle temporelle. 
+Vous explorez un village fantasy low-poly, dialoguez avec ses habitants, découvrez des runes anciennes et utilisez les connaissances acquises d’une boucle à l’autre pour comprendre qui a détruit l’Arbre Sacré au centre du monde.
+Une expérience calme et entièrement axée sur l’histoire, la découverte et l’investigation — sans combat, avec une fin unique.`,
+    image: `${base}images/WhispersOfTheTree_01.png`,
+    tags: ["Unity", "C#", "Narratif", "Boucle Temporelle", "Aventure"],
+    features: [
+      "Enquête en boucle temporelle avec connaissance persistante",
+      "Dialogues à embranchements réagissant à vos découvertes",
+      "Runes magiques aux effets uniques",
+      "Exploration légère dans un village low-poly Synty",
+      "Expérience narrative sans combat"
+    ],
+    technologies: ["Unity", "C#", "URP", "Input System"],
+    gallery: [
+      `${base}images/WhispersOfTheTree_01.png`,
+      `${base}images/WhispersOfTheTree_02.png`,
+      `${base}images/WhispersOfTheTree_03.png`,
+      `${base}images/WhispersOfTheTree_04.png`,
+      `${base}images/WhispersOfTheTree_05.png`,
+      `${base}images/WhispersOfTheTree_06.png`,
+      `${base}images/WhispersOfTheTree_07.png`,
+      `${base}images/WhispersOfTheTree_08.png`
+    ],
+    links: {
+      demo: "https://jules-gilli.itch.io/whispers-of-the-tree",
+      github: "",
+      youtube: "",
+      download: ""
+    }
   }
 ];
