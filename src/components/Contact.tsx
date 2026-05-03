@@ -1,12 +1,29 @@
 import { motion } from 'framer-motion';
 import { MailIcon, GithubIcon, LinkedinIcon, GamepadIcon } from 'lucide-react';
 import { GradientText } from './ui/GradientText';
+import Dock, { type DockItemData } from './ui/Dock';
 
-const links = [
-  { icon: <MailIcon size={24} />, href: 'mailto:jules.gilli@live.fr', label: 'Email' },
-  { icon: <GithubIcon size={24} />, href: 'https://github.com/JulesGilli', label: 'GitHub' },
-  { icon: <LinkedinIcon size={24} />, href: 'https://www.linkedin.com/in/jules-gilli/', label: 'LinkedIn' },
-  { icon: <GamepadIcon size={24} />, href: 'https://jules-gilli.itch.io', label: 'Itch.io' },
+const dockItems: DockItemData[] = [
+  {
+    icon: <MailIcon size={22} className="text-purple-300" />,
+    label: 'Email',
+    onClick: () => window.open('mailto:jules.gilli@live.fr'),
+  },
+  {
+    icon: <GithubIcon size={22} className="text-purple-300" />,
+    label: 'GitHub',
+    onClick: () => window.open('https://github.com/JulesGilli', '_blank', 'noopener,noreferrer'),
+  },
+  {
+    icon: <LinkedinIcon size={22} className="text-purple-300" />,
+    label: 'LinkedIn',
+    onClick: () => window.open('https://www.linkedin.com/in/jules-gilli/', '_blank', 'noopener,noreferrer'),
+  },
+  {
+    icon: <GamepadIcon size={22} className="text-purple-300" />,
+    label: 'Itch.io',
+    onClick: () => window.open('https://jules-gilli.itch.io', '_blank', 'noopener,noreferrer'),
+  },
 ];
 
 export function Contact() {
@@ -25,26 +42,18 @@ export function Contact() {
         </motion.div>
 
         <motion.div
-          className="flex justify-center gap-8 flex-wrap"
+          className="flex justify-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          {links.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target={link.href.startsWith('mailto') ? undefined : '_blank'}
-              rel="noopener noreferrer"
-              className="flex flex-col items-center gap-3 text-gray-400 hover:text-purple-400 transition-all group"
-            >
-              <div className="p-4 rounded-2xl glass group-hover:border-purple-500/30 group-hover:shadow-lg group-hover:shadow-purple-500/10 transition-all">
-                {link.icon}
-              </div>
-              <span className="text-xs">{link.label}</span>
-            </a>
-          ))}
+          <Dock
+            items={dockItems}
+            panelHeight={68}
+            baseItemSize={50}
+            magnification={70}
+          />
         </motion.div>
       </div>
     </section>

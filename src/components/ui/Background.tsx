@@ -6,7 +6,7 @@ export function Background() {
     <div className="fixed inset-0 z-0 pointer-events-none">
       <div className="absolute inset-0 opacity-60">
         <DarkVeil
-          hueShift={260}
+          hueShift={300}
           speed={0.3}
           warpAmount={0.2}
           noiseIntensity={0.02}

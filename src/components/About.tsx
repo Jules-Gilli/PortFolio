@@ -31,7 +31,7 @@ export function About() {
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-500/40 via-blue-500/30 to-pink-500/30 blur-2xl" />
               <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-white/10 shadow-2xl shadow-purple-500/20">
                 <img
-                  src={`${base}images/profile.jpg`}
+                  src={`${base}images/profile.png`}
                   alt="Jules Gilli"
                   className="w-full h-full object-cover"
                   onError={(e) => {
@@ -50,8 +50,7 @@ export function About() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <p className="text-gray-300 text-lg leading-relaxed">
-              Développeur Unity passionné par la création de jeux et d'outils pour les développeurs.
-              Je conçois des expériences interactives et des plugins qui simplifient le workflow de création dans Unity.
+              A Unity developer passionate about creating games and tools for developers. I design interactive experiences and plugins that streamline the development workflow in Unity.
             </p>
           </motion.div>
         </div>
