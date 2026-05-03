@@ -1,139 +1,78 @@
-import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import { MenuIcon, XIcon, TrophyIcon } from 'lucide-react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { AchievementsDrawer } from './ui/AchievementsDrawer';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { MenuIcon, XIcon } from 'lucide-react';
+
+const navItems = [
+  { label: 'About', href: '#about' },
+  { label: 'Games', href: '#games' },
+  { label: 'Tools', href: '#tools' },
+  { label: 'Contact', href: '#contact' },
+];
 
 export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [achievementsOpen, setAchievementsOpen] = useState(false);
-  const navigate = useNavigate();
-  const location = useLocation();
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+    const onScroll = () => {
+      const next = window.scrollY > 40;
+      setScrolled((cur) => (cur === next ? cur : next));
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const navItems = [
-    { name: 'Accueil', href: '#hero' },
-    { name: 'Projets', href: '#projects' },
-    { name: 'Tools', href: '#tools' },
-    { name: 'Compétences', href: '#skills' },
-    { name: 'Contact', href: '#contact' },
-  ];
-
-  const handleNavClick = (sectionId: string) => {
-    if (location.pathname !== '/') {
-      navigate('/');
-      setTimeout(() => {
-        const el = document.getElementById(sectionId);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    } else {
-      const el = document.getElementById(sectionId);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <>
-      <motion.header
-        className={`fixed w-full z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-gray-900/90 backdrop-blur-md py-4' : 'bg-transparent py-6'
-        }`}
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
-          <motion.div
-            className="text-2xl font-bold cursor-pointer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => handleNavClick('hero')}
-          >
-            Jules<span className="text-purple-500">Gilli</span>
-          </motion.div>
+    <motion.div
+      className="header-wrap"
+      data-scrolled={scrolled || undefined}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <nav className="header-nav">
+        <a href="#hero" className="brand-link">
+          Jules<span className="gradient-text">Gilli</span>
+        </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <nav className="flex space-x-8">
-              {navItems.map(item => (
-                <motion.button
-                  key={item.name}
-                  onClick={() => handleNavClick(item.href.replace('#', ''))}
-                  className="text-gray-300 hover:text-purple-500 transition-colors"
-                  whileHover={{ y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {item.name}
-                </motion.button>
-              ))}
-            </nav>
-            <motion.button
-              onClick={() => setAchievementsOpen(true)}
-              className="flex items-center space-x-2 px-4 py-2 bg-gray-800/50 hover:bg-gray-800 rounded-lg transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <TrophyIcon size={20} className="text-yellow-500" />
-              <span>Succès</span>
-            </motion.button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center space-x-4">
-            <motion.button
-              onClick={() => setAchievementsOpen(true)}
-              className="p-2 hover:bg-gray-800/50 rounded-lg"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <TrophyIcon size={20} className="text-yellow-500" />
-            </motion.button>
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-gray-300 hover:text-purple-500 focus:outline-none"
-            >
-              {mobileMenuOpen ? <XIcon size={24} /> : <MenuIcon size={24} />}
-            </button>
-          </div>
+        <div className="hidden md:flex items-center gap-8">
+          {navItems.map((item) => (
+            <a key={item.href} href={item.href} className="nav-link">
+              {item.label}
+            </a>
+          ))}
         </div>
 
-        {/* Mobile Navigation Menu */}
-        {mobileMenuOpen && (
+        <button
+          className="md:hidden text-gray-300"
+          onClick={() => setMobileOpen(!mobileOpen)}
+        >
+          {mobileOpen ? <XIcon size={22} /> : <MenuIcon size={22} />}
+        </button>
+      </nav>
+
+      <AnimatePresence>
+        {mobileOpen && (
           <motion.div
-            className="md:hidden bg-gray-800 absolute w-full"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
+            className="pointer-events-auto md:hidden absolute top-full mt-2 left-4 right-4 glass p-4 flex flex-col gap-4"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
           >
-            <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-              {navItems.map(item => (
-                <button
-                  key={item.name}
-                  onClick={() => {
-                    handleNavClick(item.href.replace('#', ''));
-                    setMobileMenuOpen(false);
-                  }}
-                  className="text-gray-300 hover:text-purple-500 py-2 transition-colors text-left"
-                >
-                  {item.name}
-                </button>
-              ))}
-            </div>
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-sm text-gray-300 hover:text-white"
+                onClick={() => setMobileOpen(false)}
+              >
+                {item.label}
+              </a>
+            ))}
           </motion.div>
         )}
-      </motion.header>
-
-      {/* Success Drawer */}
-      <AchievementsDrawer isOpen={achievementsOpen} onClose={() => setAchievementsOpen(false)} />
-    </>
+      </AnimatePresence>
+    </motion.div>
   );
 }

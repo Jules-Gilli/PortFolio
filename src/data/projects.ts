@@ -132,17 +132,17 @@ export const allProjects: Project[] = [
   {
     id: 5,
     title: "Echoes of the Abyss",
-    description: "Jeu rogue-lite en 2D avec génération procédurale et combat en temps réel.",
-    fullDescription: `Echoes of the Abyss est un jeu en 2D de type rogue-lite développé avec le framework Java libGDX. Le joueur incarne un personnage devant explorer un donjon mystérieux et affronter des ennemis générés procéduralement à chaque partie. Chaque étage est un nouveau défi, avec des combats en temps réel et une difficulté croissante.\n\nLe projet met l’accent sur la rejouabilité, l’amélioration du personnage entre les runs, la gestion des ressources et un système de progression à chaque niveau. La direction artistique et sonore vise à renforcer l’ambiance oppressante d’un monde en déliquescence.`,
+    description: "Prototype d'action-aventure en arène fermée, axé sur le combat rapide et l'atmosphère oppressante.",
+    fullDescription: `Echoes of the Abyss est un petit prototype d'action-aventure construit autour de combats rapides et d'une atmosphère tendue.\n\nLe joueur traverse une série d'arènes confinées où les ennemis ne laissent que peu de répit. Le rythme est nerveux, les salles sont restreintes, et la plupart des affrontements sont conçus pour mettre le joueur sous pression.\n\nLe gameplay se concentre sur le mouvement, le timing, et la survie jusqu'à la zone suivante. Pas de remplissage, pas de longues séquences narratives, pas de temps mort. Juste des combats brefs, des décisions rapides, et la sensation constante que l'endroit ne veut pas de toi.\n\nCette build est une version précoce destinée à montrer les idées centrales, l'ambiance, et la direction générale du gameplay.`,
     image: `${base}images/EchoesOfTheAbyss_Anim01.gif`,
-    tags: ['Java', 'LibGDX', 'Rogue Lite', '2D'],
+    tags: ['Unity', 'Action', 'Prototype', 'Combat'],
     features: [
-      "Exploration d'étages générés procéduralement",
-      "Système de combat en temps réel",
-      "Progression et amélioration entre les runs",
-      "Ambiance sombre et immersive"
+      "Combats rapides en arènes fermées",
+      "Rythme nerveux sans temps mort",
+      "Atmosphère oppressante",
+      "Mouvement et timing au coeur du gameplay"
     ],
-    technologies: ['Java', 'libGDX', 'Gradle', 'Tiled Map Editor', 'GitHub'],
+    technologies: ['Unity', 'C#'],
     gallery: [
       `${base}images/EchoesOfTheAbyss_01.png`,
       `${base}images/EchoesOfTheAbyss_02.png`,
@@ -155,10 +155,10 @@ export const allProjects: Project[] = [
       `${base}images/EchoesOfTheAbyss_Anim03.gif`
     ],
     links: {
-      demo: '',
+      demo: 'https://jules-gilli.itch.io/echoes-of-the-abyss',
       github: 'https://github.com/JulesGilli/Echoes-of-the-abyss',
       youtube: '',
-      download: '/downloads/Echeos of the Abyss Win.zip'
+      download: ''
     }
   },
   {
@@ -218,6 +218,54 @@ Une expérience calme et entièrement axée sur l’histoire, la découverte et 
     ],
     links: {
       demo: "https://jules-gilli.itch.io/whispers-of-the-tree",
+      github: "",
+      youtube: "",
+      download: ""
+    }
+  },
+  {
+    id: 8,
+    title: "Color GAP",
+    description: "Platformer minimaliste guidé par la couleur, le rythme et la perception. 🏆 Jury's Favorite — GGJ 2026.",
+    fullDescription: `Color GAP est un platformer minimaliste guidé par la couleur, le rythme et la perception.\n\nVous explorez un monde immaculé construit autour d'un platforming précis et d'énigmes environnementales. Très tôt, un événement mystérieux fracture cet espace immaculé et scinde la réalité en trois couleurs primaires : jaune, rouge, bleu.\n\nÀ partir de ce moment, le monde existe en fragments superposés. Chaque saut décale votre perception, faisant cycler des masques de couleur qui ne révèlent que les parties de l'environnement correspondant à la couleur active.\n\nLes plateformes, chemins et obstacles sont toujours là — mais une seule couleur est visible à la fois. Pour progresser, il faut lire l'environnement, choisir le bon moment pour sauter, et s'engager dans le mouvement. Un saut mal calculé n'affecte pas seulement votre trajectoire — il change ce qui existe au moment de l'atterrissage.\n\nLa musique évolue avec vos actions, renforçant le lien entre mouvement, couleur et flow. Maîtriser le jeu, c'est apprendre quand sauter, pas seulement comment.\n\n🏆 Jury's Favorite Award — Global Game Jam 2026`,
+    image: `${base}images/ColorGAP_01.png`,
+    tags: ['Unity', 'Platformer', 'Game Jam', 'Puzzle'],
+    features: [
+      "Cycle de couleurs déclenché à chaque saut",
+      "Plateformes visibles uniquement par couleur active",
+      "Musique réactive au gameplay",
+      "Récompensé Jury's Favorite à la GGJ 2026"
+    ],
+    technologies: ['Unity', 'C#'],
+    gallery: [
+      `${base}images/ColorGAP_01.png`
+    ],
+    links: {
+      demo: "https://jules-gilli.itch.io/color-gap",
+      github: "",
+      youtube: "",
+      download: ""
+    }
+  },
+  {
+    id: 9,
+    title: "Mirapyde",
+    description: "Platformer 2D parkour avec manipulation du temps : crée un clone qui rejoue tes mouvements à l'envers.",
+    fullDescription: `Mirapyde est un platformer 2D basé sur le parkour et la magie de la manipulation du temps.\n\nChaque salle est un puzzle fermé : une porte, un objectif, aucun remplissage. Tu avances uniquement en exécutant les bonnes actions au bon moment.\n\nLe principe central : figer le temps pour créer un clone qui rejoue tes mouvements… mais à l'envers. Ce double peut activer un bouton pendant que tu grimpes ailleurs, maintenir une plaque de pression, ou synchroniser une seconde action que tu ne pourrais jamais réaliser seul. Si tu te trompes, tu recommences immédiatement : pas de temps mort.\n\nLe jeu repose sur trois choses : mouvement propre, timing strict, et planification. Les pièges ne pardonnent rien, et chaque salle demande d'assembler les deux timelines pour obtenir la solution la plus propre possible.\n\nProgresse étage après étage dans la pyramide, et comprends vite que ce n'est pas ta dextérité seule qui t'en sortira, mais ta capacité à orchestrer deux versions de toi-même sans erreur.`,
+    image: `${base}images/Mirapyde_01.png`,
+    tags: ['Unity', 'Platformer 2D', 'Puzzle', 'Time Manipulation'],
+    features: [
+      "Clone temporel rejouant tes mouvements à l'envers",
+      "Salles-puzzles à orchestrer en deux timelines",
+      "Timing strict et planification",
+      "Progression verticale dans une pyramide"
+    ],
+    technologies: ['Unity', 'C#'],
+    gallery: [
+      `${base}images/Mirapyde_01.png`
+    ],
+    links: {
+      demo: "https://jules-gilli.itch.io/mirapyde",
       github: "",
       youtube: "",
       download: ""

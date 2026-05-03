@@ -1,4 +1,3 @@
-import React from 'react'
 // src/data/toolsData.ts
 
 export const toolsData = [
