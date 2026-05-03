@@ -1,5 +1,6 @@
 export interface Project {
   id: number;
+  slug?: string;
   title: string;
   description: string;
   fullDescription?: string;
@@ -77,6 +78,7 @@ export const allProjects: Project[] = [
   },
   {
     id: 3,
+    slug: 'cursum',
     title: 'Cursum',
     description: "Prototype solo de runner/FPS réalisé sur un mois en autonomie complète.",
     fullDescription: `Premier projet solo dans lequel j’ai tout géré : conception, GDD, design, programmation, intégration d’assets. Cursum est un jeu de course contre la montre à la première personne. Le joueur maîtrise un panel de mouvements : glissade, saut, wall-run... Le but est de terminer les parcours dans le temps imparti, avec un hub, un tutoriel, et un système de score.`,
@@ -105,6 +107,7 @@ export const allProjects: Project[] = [
   },
   {
     id: 4,
+    slug: 'keep-dancing',
     title: 'Keep Dancing to Live',
     description: "Jeu d'esquive rythmée réalisé en 48h pour la Global Game Jam 2024.",
     fullDescription: `Keep Dancing To Live est un jeu sur un fou du roi qui a besoin de danser. Le joueur doit tourner une planche de bois découpée en forme de héros. Si tu ne fais pas rire le roi... tu mourras.\n\nJeu réalisé dans le cadre de la GGJ 2024, en moins de 48h, avec Mariana Mancieri, Romain Pitot, Nicolas Saussol et Jules Gilli au développement, William Vasseur à la 3D, et l'ensemble de l'équipe à la conception.`,
@@ -131,10 +134,11 @@ export const allProjects: Project[] = [
   },
   {
     id: 5,
+    slug: 'echoes',
     title: "Echoes of the Abyss",
     description: "Prototype d'action-aventure en arène fermée, axé sur le combat rapide et l'atmosphère oppressante.",
     fullDescription: `Echoes of the Abyss est un petit prototype d'action-aventure construit autour de combats rapides et d'une atmosphère tendue.\n\nLe joueur traverse une série d'arènes confinées où les ennemis ne laissent que peu de répit. Le rythme est nerveux, les salles sont restreintes, et la plupart des affrontements sont conçus pour mettre le joueur sous pression.\n\nLe gameplay se concentre sur le mouvement, le timing, et la survie jusqu'à la zone suivante. Pas de remplissage, pas de longues séquences narratives, pas de temps mort. Juste des combats brefs, des décisions rapides, et la sensation constante que l'endroit ne veut pas de toi.\n\nCette build est une version précoce destinée à montrer les idées centrales, l'ambiance, et la direction générale du gameplay.`,
-    image: `${base}images/EchoesOfTheAbyss_Anim01.gif`,
+    image: `${base}images/EchoesOfTheAbyss_00.png`,
     tags: ['Unity', 'Action', 'Prototype', 'Combat'],
     features: [
       "Combats rapides en arènes fermées",
@@ -191,6 +195,7 @@ export const allProjects: Project[] = [
   },
   {
     id: 7,
+    slug: 'whispers',
     title: "Whispers of the Tree",
     description: "Aventure narrative en boucle temporelle dans un village low-poly paisible, où chaque boucle révèle de nouveaux indices.",
     fullDescription: `Whispers of the Tree est une aventure narrative en vue à la troisième personne, plongée dans une mystérieuse boucle temporelle. 
@@ -225,6 +230,7 @@ Une expérience calme et entièrement axée sur l’histoire, la découverte et 
   },
   {
     id: 8,
+    slug: 'color-gap',
     title: "Color GAP",
     description: "Platformer minimaliste guidé par la couleur, le rythme et la perception. 🏆 Jury's Favorite — GGJ 2026.",
     fullDescription: `Color GAP est un platformer minimaliste guidé par la couleur, le rythme et la perception.\n\nVous explorez un monde immaculé construit autour d'un platforming précis et d'énigmes environnementales. Très tôt, un événement mystérieux fracture cet espace immaculé et scinde la réalité en trois couleurs primaires : jaune, rouge, bleu.\n\nÀ partir de ce moment, le monde existe en fragments superposés. Chaque saut décale votre perception, faisant cycler des masques de couleur qui ne révèlent que les parties de l'environnement correspondant à la couleur active.\n\nLes plateformes, chemins et obstacles sont toujours là — mais une seule couleur est visible à la fois. Pour progresser, il faut lire l'environnement, choisir le bon moment pour sauter, et s'engager dans le mouvement. Un saut mal calculé n'affecte pas seulement votre trajectoire — il change ce qui existe au moment de l'atterrissage.\n\nLa musique évolue avec vos actions, renforçant le lien entre mouvement, couleur et flow. Maîtriser le jeu, c'est apprendre quand sauter, pas seulement comment.\n\n🏆 Jury's Favorite Award — Global Game Jam 2026`,
@@ -249,6 +255,7 @@ Une expérience calme et entièrement axée sur l’histoire, la découverte et 
   },
   {
     id: 9,
+    slug: 'mirapyde',
     title: "Mirapyde",
     description: "Platformer 2D parkour avec manipulation du temps : crée un clone qui rejoue tes mouvements à l'envers.",
     fullDescription: `Mirapyde est un platformer 2D basé sur le parkour et la magie de la manipulation du temps.\n\nChaque salle est un puzzle fermé : une porte, un objectif, aucun remplissage. Tu avances uniquement en exécutant les bonnes actions au bon moment.\n\nLe principe central : figer le temps pour créer un clone qui rejoue tes mouvements… mais à l'envers. Ce double peut activer un bouton pendant que tu grimpes ailleurs, maintenir une plaque de pression, ou synchroniser une seconde action que tu ne pourrais jamais réaliser seul. Si tu te trompes, tu recommences immédiatement : pas de temps mort.\n\nLe jeu repose sur trois choses : mouvement propre, timing strict, et planification. Les pièges ne pardonnent rien, et chaque salle demande d'assembler les deux timelines pour obtenir la solution la plus propre possible.\n\nProgresse étage après étage dans la pyramide, et comprends vite que ce n'est pas ta dextérité seule qui t'en sortira, mais ta capacité à orchestrer deux versions de toi-même sans erreur.`,

@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { GradientText } from './ui/GradientText';
 
 const base = import.meta.env.BASE_URL;
 
 export function About() {
+  const { t } = useTranslation();
   return (
     <section id="about" className="relative z-10 py-32 px-4">
       <div className="max-w-4xl mx-auto">
@@ -15,7 +17,7 @@ export function About() {
           transition={{ duration: 0.6 }}
         >
           <GradientText as="h2" className="text-3xl md:text-4xl font-bold">
-            About
+            {t('about.title')}
           </GradientText>
         </motion.div>
 
@@ -50,7 +52,7 @@ export function About() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <p className="text-gray-300 text-lg leading-relaxed">
-              A Unity developer passionate about creating games and tools for developers. I design interactive experiences and plugins that streamline the development workflow in Unity.
+              {t('about.description')}
             </p>
           </motion.div>
         </div>

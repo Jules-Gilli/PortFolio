@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "about": "Sobre mí",
+    "games": "Juegos",
+    "tools": "Herramientas",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "subtitle": "Desarrollador de videojuegos y creador de herramientas Unity",
+    "tagline": "Creación de experiencias interactivas y herramientas para desarrolladores",
+    "cta": "Ver mi trabajo"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "description": "Desarrollador Unity apasionado por crear juegos y herramientas para desarrolladores. Diseño experiencias interactivas y plugins que simplifican el flujo de trabajo en Unity."
+  },
+  "games": {
+    "title": "Juegos",
+    "playOnItch": "Jugar en Itch.io",
+    "descriptions": {
+      "cursum": "Prototipo solo de runner/FPS desarrollado en un mes con total autonomía.",
+      "keep-dancing": "Juego de esquiva rítmica creado en 48h para la Global Game Jam 2024.",
+      "echoes": "Prototipo de acción-aventura en arenas cerradas, centrado en combate rápido y atmósfera opresiva.",
+      "whispers": "Aventura narrativa con bucle temporal en un tranquilo pueblo low-poly, donde cada bucle revela nuevas pistas.",
+      "color-gap": "Plataformas minimalistas guiadas por el color, el ritmo y la percepción. 🏆 Favorito del jurado — GGJ 2026.",
+      "mirapyde": "Plataformas 2D parkour con manipulación del tiempo: crea un clon que repite tus movimientos al revés."
+    }
+  },
+  "tools": {
+    "title": "Herramientas Unity",
+    "viewOnAssetStore": "Ver en el Asset Store",
+    "descriptions": {
+      "project-organizer": "Reestructura tu carpeta Assets con un clic en un árbol limpio, estándar y profesional.",
+      "code-harvest": "Exporta, documenta y estructura tu código Unity con un clic. Ideal para revisiones, documentación técnica o entrenamiento de IA.",
+      "class-diagram-generator": "Genera automáticamente diagramas de clases UML a partir de tus scripts Unity. Ideal para documentar y visualizar proyectos.",
+      "animation-path-visualizer": "Visualiza y edita trayectorias de animación directamente en la vista de Escena. Mueve keyframes, ajusta tangentes, muestra el gradiente de velocidad y bloquea la selección. Compatible con Animation y Animator. Solo Editor.",
+      "smart-localization": "Flujo de localización orientado al Editor para TextMeshPro: traducción en un clic con múltiples proveedores (DeepL, Azure, Google, Amazon, MyMemory…), bloqueos por idioma, verificación de placeholders y dashboard.",
+      "smart-localization-lite": "Versión Lite gratuita y plug-and-play para TextMeshPro: LocalizedTMP, traducción en un clic con MyMemory, bloqueos por idioma y cuota diaria gestionada desde el Editor."
+    }
+  },
+  "contact": {
+    "title": "Contacto",
+    "labels": {
+      "email": "Correo",
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "itch": "Itch.io"
+    }
+  },
+  "footer": {
+    "rights": "© {{year}} Jules Gilli"
+  },
+  "language": {
+    "label": "Idioma"
+  }
+}

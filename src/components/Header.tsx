@@ -1,15 +1,18 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MenuIcon, XIcon } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { LanguageSelector } from './ui/LanguageSelector';
 
 const navItems = [
-  { label: 'About', href: '#about' },
-  { label: 'Games', href: '#games' },
-  { label: 'Tools', href: '#tools' },
-  { label: 'Contact', href: '#contact' },
-];
+  { key: 'about', href: '#about' },
+  { key: 'games', href: '#games' },
+  { key: 'tools', href: '#tools' },
+  { key: 'contact', href: '#contact' },
+] as const;
 
 export function Header() {
+  const { t } = useTranslation();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -39,17 +42,20 @@ export function Header() {
         <div className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <a key={item.href} href={item.href} className="nav-link">
-              {item.label}
+              {t(`nav.${item.key}`)}
             </a>
           ))}
         </div>
 
-        <button
-          className="md:hidden text-gray-300"
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
-          {mobileOpen ? <XIcon size={22} /> : <MenuIcon size={22} />}
-        </button>
+        <div className="flex items-center gap-3 pointer-events-auto">
+          <LanguageSelector />
+          <button
+            className="md:hidden text-gray-300"
+            onClick={() => setMobileOpen(!mobileOpen)}
+          >
+            {mobileOpen ? <XIcon size={22} /> : <MenuIcon size={22} />}
+          </button>
+        </div>
       </nav>
 
       <AnimatePresence>
@@ -67,7 +73,7 @@ export function Header() {
                 className="text-sm text-gray-300 hover:text-white"
                 onClick={() => setMobileOpen(false)}
               >
-                {item.label}
+                {t(`nav.${item.key}`)}
               </a>
             ))}
           </motion.div>

@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "about": "About",
+    "games": "Games",
+    "tools": "Tools",
+    "contact": "Contact"
+  },
+  "hero": {
+    "subtitle": "Game Developer & Unity Tool Creator",
+    "tagline": "Building interactive experiences and developer tools",
+    "cta": "See my work"
+  },
+  "about": {
+    "title": "About",
+    "description": "A Unity developer passionate about creating games and tools for developers. I design interactive experiences and plugins that streamline the development workflow in Unity."
+  },
+  "games": {
+    "title": "Games",
+    "playOnItch": "Play on Itch.io",
+    "descriptions": {
+      "cursum": "Solo runner/FPS prototype built in one month in full autonomy.",
+      "keep-dancing": "Rhythm-based dodging game made in 48h for the Global Game Jam 2024.",
+      "echoes": "Action-adventure prototype in confined arenas, focused on fast combat and oppressive atmosphere.",
+      "whispers": "Narrative time-loop adventure in a peaceful low-poly village, where each loop uncovers new clues.",
+      "color-gap": "A minimalist platformer driven by color, rhythm, and perception. 🏆 Jury's Favorite — GGJ 2026.",
+      "mirapyde": "2D parkour platformer with time manipulation: create a clone that replays your moves in reverse."
+    }
+  },
+  "tools": {
+    "title": "Unity Tools",
+    "viewOnAssetStore": "View on Asset Store",
+    "descriptions": {
+      "project-organizer": "Restructure your Assets folder in one click into a clean, standard, professional file tree.",
+      "code-harvest": "Export, document and structure your Unity code in one click. Ideal for reviews, tech docs or AI training.",
+      "class-diagram-generator": "Automatically generate UML class diagrams from your Unity scripts. Perfect to document and visualize your projects.",
+      "animation-path-visualizer": "Visualize and edit animation paths directly in the Scene view. Drag keyframes, tweak tangents, display the speed gradient, and lock your selection. Works with Animation & Animator. Editor only.",
+      "smart-localization": "Editor-driven localization workflow for TextMeshPro: one-click translation via multiple providers (DeepL, Azure, Google, Amazon, MyMemory…), per-language locks, placeholder checks and dashboard.",
+      "smart-localization-lite": "Free, plug-and-play Lite version for TextMeshPro: LocalizedTMP, one-click translation via MyMemory, per-language locks and a daily quota managed from the Editor."
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "labels": {
+      "email": "Email",
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "itch": "Itch.io"
+    }
+  },
+  "footer": {
+    "rights": "© {{year}} Jules Gilli"
+  },
+  "language": {
+    "label": "Language"
+  }
+}

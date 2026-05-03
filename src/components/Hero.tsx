@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { GradientText } from './ui/GradientText';
 
 export function Hero() {
+  const { t } = useTranslation();
+
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center">
       <div className="text-center z-10 px-4">
@@ -20,7 +23,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Game Developer & Unity Tool Creator
+          {t('hero.subtitle')}
         </motion.p>
         <motion.p
           className="mt-4 text-gray-500 max-w-md mx-auto"
@@ -28,7 +31,7 @@ export function Hero() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          Building interactive experiences and developer tools
+          {t('hero.tagline')}
         </motion.p>
         <motion.a
           href="#games"
@@ -46,7 +49,7 @@ export function Hero() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          See my work
+          {t('hero.cta')}
         </motion.a>
       </div>
     </section>

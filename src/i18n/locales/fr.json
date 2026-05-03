@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "about": "À propos",
+    "games": "Jeux",
+    "tools": "Outils",
+    "contact": "Contact"
+  },
+  "hero": {
+    "subtitle": "Développeur de jeux & créateur d'outils Unity",
+    "tagline": "Création d'expériences interactives et d'outils pour développeurs",
+    "cta": "Voir mon travail"
+  },
+  "about": {
+    "title": "À propos",
+    "description": "Développeur Unity passionné par la création de jeux et d'outils pour développeurs. Je conçois des expériences interactives et des plugins qui simplifient le workflow de développement dans Unity."
+  },
+  "games": {
+    "title": "Jeux",
+    "playOnItch": "Jouer sur Itch.io",
+    "descriptions": {
+      "cursum": "Prototype solo de runner/FPS réalisé sur un mois en autonomie complète.",
+      "keep-dancing": "Jeu d'esquive rythmée réalisé en 48h pour la Global Game Jam 2024.",
+      "echoes": "Prototype d'action-aventure en arène fermée, axé sur le combat rapide et l'atmosphère oppressante.",
+      "whispers": "Aventure narrative en boucle temporelle dans un village low-poly paisible, où chaque boucle révèle de nouveaux indices.",
+      "color-gap": "Platformer minimaliste guidé par la couleur, le rythme et la perception. 🏆 Coup de cœur du jury — GGJ 2026.",
+      "mirapyde": "Platformer 2D parkour avec manipulation du temps : crée un clone qui rejoue tes mouvements à l'envers."
+    }
+  },
+  "tools": {
+    "title": "Outils Unity",
+    "viewOnAssetStore": "Voir sur l'Asset Store",
+    "descriptions": {
+      "project-organizer": "Restructurez d'un clic votre dossier Assets pour obtenir une arborescence standard, propre et professionnelle.",
+      "code-harvest": "Exportez, documentez et structurez votre code Unity en un clic. Idéal pour les revues, la doc technique ou l'entraînement d'IA.",
+      "class-diagram-generator": "Générez automatiquement des diagrammes de classes UML à partir de vos scripts Unity. Idéal pour documenter et visualiser vos projets.",
+      "animation-path-visualizer": "Visualisez et éditez les trajectoires d'animation directement dans la vue Scène. Déplacez les clés à la main, ajustez les tangentes, affichez le gradient de vitesse et verrouillez la sélection. Compatible avec Animation & Animator. Éditeur uniquement.",
+      "smart-localization": "Workflow de localisation orienté éditeur pour TextMeshPro : traduction en un clic via plusieurs providers (DeepL, Azure, Google, Amazon, MyMemory…), verrous par langue, vérification des placeholders et dashboard.",
+      "smart-localization-lite": "Version Lite gratuite, plug-and-play pour TextMeshPro : LocalizedTMP, traduction en un clic via MyMemory, locks par langue et quota journalier géré côté Editor."
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "labels": {
+      "email": "E-mail",
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "itch": "Itch.io"
+    }
+  },
+  "footer": {
+    "rights": "© {{year}} Jules Gilli"
+  },
+  "language": {
+    "label": "Langue"
+  }
+}
