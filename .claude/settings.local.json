@@ -14,7 +14,12 @@
       "mcp__Claude_in_Chrome__read_console_messages",
       "mcp__Claude_in_Chrome__resize_window",
       "mcp__Claude_Preview__preview_start",
-      "WebFetch(domain:jules-gilli.itch.io)"
+      "WebFetch(domain:jules-gilli.itch.io)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5175/)",
+      "Read(//tmp/**)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:5173/ http://localhost:5174/ http://localhost:5175/ http://localhost:5176/)",
+      "Bash(powershell -Command \"Get-NetTCPConnection -LocalPort 5173,5174,5175,5176 -ErrorAction SilentlyContinue | Select LocalPort,OwningProcess | Format-Table\")",
+      "Bash(curl -s -I http://localhost:5175/)"
     ]
   }
 }

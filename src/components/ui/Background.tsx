@@ -13,15 +13,23 @@ export function Background() {
           resolutionScale={0.85}
         />
       </div>
-      <div className="absolute inset-0 opacity-90">
+      <div
+        className="absolute inset-0"
+        style={{
+          maskImage:
+            'radial-gradient(ellipse 75% 75% at 50% 50%, black 35%, transparent 100%)',
+          WebkitMaskImage:
+            'radial-gradient(ellipse 75% 75% at 50% 50%, black 35%, transparent 100%)',
+        }}
+      >
         <DotField
-          dotRadius={1.5}
+          dotRadius={1.8}
           dotSpacing={18}
           cursorRadius={200}
           bulgeStrength={45}
           fadeRadius={120}
-          gradientFrom="rgba(168, 85, 247, 0.5)"
-          gradientTo="rgba(236, 72, 153, 0.35)"
+          gradientFrom="rgba(196, 181, 253, 0.95)"
+          gradientTo="rgba(244, 114, 182, 0.85)"
         />
       </div>
       {/* Subtle dark overlay to ensure text readability */}
