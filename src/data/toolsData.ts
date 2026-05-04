@@ -53,7 +53,8 @@ export const toolsData = [
     purchaseLink:
       "https://assetstore.unity.com/packages/tools/utilities/project-organizer-322966",
     demoLink: "",
-    documentationLink: "",
+    documentationLink:
+      "https://julestools.gitbook.io/julestools-docs/documentation/tools/project-organizer#overview",
     supportLink: "",
   }
   ,
@@ -111,7 +112,8 @@ export const toolsData = [
     purchaseLink:
       "https://assetstore.unity.com/packages/tools/utilities/code-harvest-ai-friendly-tools-323003#content",
     demoLink: "",
-    documentationLink: "",
+    documentationLink:
+      "https://julestools.gitbook.io/julestools-docs/documentation/tools/code-harvest#overview",
     supportLink: "",
   }
   ,
@@ -166,7 +168,8 @@ export const toolsData = [
     purchaseLink:
       "https://assetstore.unity.com/packages/tools/utilities/class-diagram-generator-323124",
     demoLink: "",
-    documentationLink: "",
+    documentationLink:
+      "https://julestools.gitbook.io/julestools-docs/documentation/tools/class-diagram-generator",
     supportLink: "",
   }
   ,
@@ -223,7 +226,8 @@ export const toolsData = [
     },
     purchaseLink: "https://assetstore.unity.com/packages/tools/animation/animation-path-visualizer-325611",
     demoLink: "",
-    documentationLink: "",
+    documentationLink:
+      "https://julestools.gitbook.io/julestools-docs/documentation/tools/animation-path-visualizer",
     supportLink: ""
   }
   ,
@@ -288,7 +292,8 @@ export const toolsData = [
     purchaseLink:
         "https://assetstore.unity.com/packages/tools/localization/smart-localization-suite-335116#content",
     demoLink: "",
-    documentationLink: "",
+    documentationLink:
+      "https://julestools.gitbook.io/julestools-docs/documentation/tools/smart-localization-suite",
     supportLink: ""
   }
   ,
@@ -349,7 +354,8 @@ export const toolsData = [
     purchaseLink:
         "https://assetstore.unity.com/packages/tools/localization/smart-localization-lite-332202#content",
     demoLink: "",
-    documentationLink: "",
+    documentationLink:
+      "https://julestools.gitbook.io/julestools-docs/documentation/tools/smart-localization-lite#overview",
     supportLink: ""
   }
 ];

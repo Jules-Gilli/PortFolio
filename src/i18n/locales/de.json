@@ -29,6 +29,7 @@
   "tools": {
     "title": "Unity-Tools",
     "viewOnAssetStore": "Im Asset Store ansehen",
+    "documentation": "Dokumentation",
     "descriptions": {
       "project-organizer": "Strukturiere deinen Assets-Ordner mit einem Klick in einen sauberen, professionellen Standard-Baum.",
       "code-harvest": "Exportiere, dokumentiere und strukturiere deinen Unity-Code mit einem Klick. Ideal für Reviews, technische Doku oder KI-Training.",

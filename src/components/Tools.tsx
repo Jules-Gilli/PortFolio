@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ExternalLinkIcon, StarIcon } from 'lucide-react';
+import { ExternalLinkIcon, StarIcon, BookOpenIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { GradientText } from './ui/GradientText';
 import BorderGlow from './ui/BorderGlow';
@@ -63,14 +63,26 @@ export function Tools() {
                     ))}
                     <span className="text-xs text-gray-500 ml-2">{tool.downloads}</span>
                   </div>
-                  <a
-                    href={tool.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm text-purple-400 hover:text-purple-300 transition-colors"
-                  >
-                    {t('tools.viewOnAssetStore')} <ExternalLinkIcon size={14} />
-                  </a>
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                    <a
+                      href={tool.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm text-purple-400 hover:text-purple-300 transition-colors"
+                    >
+                      {t('tools.viewOnAssetStore')} <ExternalLinkIcon size={14} />
+                    </a>
+                    {tool.documentationLink && (
+                      <a
+                        href={tool.documentationLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm text-pink-400 hover:text-pink-300 transition-colors"
+                      >
+                        <BookOpenIcon size={14} /> {t('tools.documentation')}
+                      </a>
+                    )}
+                  </div>
                 </div>
               </BorderGlow>
             </motion.div>

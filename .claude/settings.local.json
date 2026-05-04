@@ -19,7 +19,23 @@
       "Read(//tmp/**)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:5173/ http://localhost:5174/ http://localhost:5175/ http://localhost:5176/)",
       "Bash(powershell -Command \"Get-NetTCPConnection -LocalPort 5173,5174,5175,5176 -ErrorAction SilentlyContinue | Select LocalPort,OwningProcess | Format-Table\")",
-      "Bash(curl -s -I http://localhost:5175/)"
+      "Bash(curl -s -I http://localhost:5175/)",
+      "WebFetch(domain:publisher.unity.com)",
+      "WebFetch(domain:publisher.assetstore.unity3d.com)",
+      "WebFetch(domain:docs.unity3d.com)",
+      "WebFetch(domain:api.assetstore.unity3d.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:forum.unity.com)",
+      "WebFetch(domain:discussions.unity.com)",
+      "WebFetch(domain:api.unity.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"https://publisher.unity.com/invoices/document\" -H \"Accept: application/json\")",
+      "WebFetch(domain:www.google.com)",
+      "WebFetch(domain:web.archive.org)",
+      "WebFetch(domain:services.docs.unity.com)",
+      "WebSearch",
+      "WebFetch(domain:www.npmjs.com)",
+      "WebFetch(domain:www.nuget.org)"
     ]
   }
 }
