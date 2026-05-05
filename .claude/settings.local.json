@@ -35,7 +35,8 @@
       "WebFetch(domain:services.docs.unity.com)",
       "WebSearch",
       "WebFetch(domain:www.npmjs.com)",
-      "WebFetch(domain:www.nuget.org)"
+      "WebFetch(domain:www.nuget.org)",
+      "Bash(node -e \"console.log\\(Object.keys\\(require\\('./package.json'\\).devDependencies||{}\\).concat\\(Object.keys\\(require\\('./package.json'\\).dependencies||{}\\)\\).filter\\(d=>d.match\\(/sharp|puppeteer|canvas|playwright/\\)\\).join\\(','\\)\\)\")"
     ]
   }
 }
