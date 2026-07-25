@@ -97,8 +97,16 @@ export default function DarkVeil({
     const canvas = ref.current as HTMLCanvasElement;
     const parent = canvas.parentElement as HTMLElement;
 
+    // Adapt quality to the device: weaker GPUs (phones, low-core laptops) render
+    // the veil at a lower internal resolution and frame-rate. It sits behind a
+    // blur + radial mask at 60% opacity, so the drop is imperceptible.
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const coarse = window.matchMedia('(pointer: coarse)').matches;
+    const lowPower = coarse || (navigator.hardwareConcurrency || 8) <= 4;
+    const effectiveScale = resolutionScale * (lowPower ? 0.6 : 1);
+
     const renderer = new Renderer({
-      dpr: Math.min(window.devicePixelRatio, 2),
+      dpr: Math.min(window.devicePixelRatio || 1, lowPower ? 1 : 2),
       canvas
     });
 
@@ -124,7 +132,7 @@ export default function DarkVeil({
     const resize = () => {
       const w = parent.clientWidth,
         h = parent.clientHeight;
-      renderer.setSize(w * resolutionScale, h * resolutionScale);
+      renderer.setSize(w * effectiveScale, h * effectiveScale);
       canvas.style.width = '100%';
       canvas.style.height = '100%';
       program.uniforms.uResolution.value.set(w, h);
@@ -135,23 +143,41 @@ export default function DarkVeil({
 
     const start = performance.now();
     let frame = 0;
+    let last = 0;
+    const minInterval = 1000 / (lowPower ? 30 : 60);
 
-    const loop = () => {
-      program.uniforms.uTime.value = ((performance.now() - start) / 1000) * speed;
-      program.uniforms.uHueShift.value = hueShift;
-      program.uniforms.uNoise.value = noiseIntensity;
-      program.uniforms.uScan.value = scanlineIntensity;
-      program.uniforms.uScanFreq.value = scanlineFrequency;
-      program.uniforms.uWarp.value = warpAmount;
+    const renderFrame = (now: number) => {
+      program.uniforms.uTime.value = ((now - start) / 1000) * speed;
       renderer.render({ scene: mesh });
-      frame = requestAnimationFrame(loop);
     };
 
-    loop();
+    const loop = (now: number) => {
+      frame = requestAnimationFrame(loop);
+      if (now - last < minInterval) return;
+      last = now;
+      renderFrame(now);
+    };
+
+    if (prefersReduced) {
+      renderFrame(performance.now()); // single static frame, no animation
+    } else {
+      frame = requestAnimationFrame(loop);
+    }
+
+    // Pause the render loop while the tab is hidden (saves battery/GPU).
+    const onVisibility = () => {
+      cancelAnimationFrame(frame);
+      if (!document.hidden && !prefersReduced) {
+        last = 0;
+        frame = requestAnimationFrame(loop);
+      }
+    };
+    document.addEventListener('visibilitychange', onVisibility);
 
     return () => {
       cancelAnimationFrame(frame);
       window.removeEventListener('resize', resize);
+      document.removeEventListener('visibilitychange', onVisibility);
     };
   }, [hueShift, noiseIntensity, scanlineIntensity, speed, scanlineFrequency, warpAmount, resolutionScale]);
   return <canvas ref={ref} className="w-full h-full block" />;

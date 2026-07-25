@@ -102,6 +102,7 @@ const DotField = memo(({
 
     let cachedGrad: CanvasGradient | null = null;
     let cachedGradKey = '';
+    let running = true;
 
     function tick() {
       const dots = dotsRef.current;
@@ -184,14 +185,25 @@ const DotField = memo(({
         ctx!.globalCompositeOperation = 'source-over';
       }
 
-      rafRef.current = requestAnimationFrame(tick);
+      if (running) rafRef.current = requestAnimationFrame(tick);
     }
 
     doResize();
     window.addEventListener('resize', resize);
-    window.addEventListener('mousemove', onMouseMove, { passive: true });
-    document.addEventListener('mouseleave', onMouseLeave);
-    rafRef.current = requestAnimationFrame(tick);
+
+    const coarse = window.matchMedia('(pointer: coarse)').matches;
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (coarse || prefersReduced) {
+      // Touch devices have no cursor to react to (and reduced-motion users opted
+      // out of animation): draw the dot grid once, statically, with no RAF loop.
+      running = false;
+      tick();
+    } else {
+      window.addEventListener('mousemove', onMouseMove, { passive: true });
+      document.addEventListener('mouseleave', onMouseLeave);
+      rafRef.current = requestAnimationFrame(tick);
+    }
 
     rebuildRef.current = () => {
       const { w, h } = sizeRef.current;
